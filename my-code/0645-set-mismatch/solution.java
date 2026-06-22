@@ -1,29 +1,26 @@
 class Solution {
     public int[] findErrorNums(int[] nums) {
-        int n = nums.length;
-        
-        int[] temp = new int[n + 1]; 
-        int missing = 0;
-        int duplicate = 0;
-        
-       
-        for(int i = 0; i < n; i++){
-            temp[nums[i]]++;
+
+        long sum=0;
+        long actualsum=0;
+        long sumsqr=0;
+        long actualsumsqr=0;
+        long n=nums.length;
+        int[] ans= new int[2];
+        for(int i=0;i<n;i++){
+            sum+=(long)nums[i];
+            sumsqr+=((long)nums[i]*(long)nums[i]);
+            actualsum+=(long)(i+1);
+            actualsumsqr+=((long)(i+1)*(long)(i+1));
+            
+
         }
-        
-        
-        for(int i = 1; i <= n; i++){
-            if(temp[i] == 2){
-                duplicate = i;
-            }
-            if(temp[i] == 0){
-                missing = i;
-            }
-        }
-        
-        int[] arr = new int[2];
-        arr[0] = duplicate; 
-        arr[1] = missing;
-        return arr;
+
+        long temp1=actualsum-sum;
+        long temp2=actualsumsqr-sumsqr;
+        ans[0]=(int)((temp2-(temp1*temp1))/(temp1*2));
+        ans[1]=(int)((temp2+(temp1*temp1))/(temp1*2));
+        return ans;
     }
 }
+
