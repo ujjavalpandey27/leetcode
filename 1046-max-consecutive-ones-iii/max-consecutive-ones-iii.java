@@ -7,7 +7,7 @@ class Solution {
             if(nums[r]==0){
                 ocount++;
             }
-            if(ocount>k){
+            while(ocount>k){
                 if(nums[l]==0){
                     ocount--;
                 }
