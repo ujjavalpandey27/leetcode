@@ -1,6 +1,6 @@
 class Solution {
     public int trap(int[] height) {
-        
+
         int l=0;
         int r=height.length-1;
         
@@ -14,7 +14,7 @@ class Solution {
                 r--;
                 continue;
             }
-            rightmax[r]=Math.max(height[r],Math.max(rightmax[r+1],height[r+1]));
+            rightmax[r]=Math.max(height[r],rightmax[r+1]);
             r--;
 
 
@@ -25,7 +25,7 @@ class Solution {
                 l++;
                 continue;
             }
-            leftmax[l]=Math.max(height[l],Math.max(leftmax[l-1],height[l-1]));
+            leftmax[l]=Math.max(height[l],leftmax[l-1]);
             l++;
 
 
