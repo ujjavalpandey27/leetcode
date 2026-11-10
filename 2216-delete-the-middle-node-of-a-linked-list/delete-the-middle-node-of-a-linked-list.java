@@ -14,13 +14,11 @@ class Solution {
             return null;
         }
         ListNode slow=head;
-        ListNode fast=head;
+        ListNode fast=head.next;
 
         while(fast.next!=null && fast.next.next!=null){
             fast=fast.next.next;
-            if(fast.next==null){
-                break;
-            }
+            
             slow=slow.next;
         }
         
