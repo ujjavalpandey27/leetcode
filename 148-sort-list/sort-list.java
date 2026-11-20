@@ -22,10 +22,8 @@ class Solution {
         ListNode h2=slow.next;
         slow.next=null;
 
-        ListNode left=sortList(h2);
-        ListNode right=sortList(head);
 
-        return merge(left,right);
+        return merge(sortList(head),sortList(h2));
 
         
 
